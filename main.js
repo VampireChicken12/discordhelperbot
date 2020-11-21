@@ -5,7 +5,7 @@ const ytdl = require('ytdl-core');
 const { YTSearcher } = require('ytsearcher');
 
 const searcher = new YTSearcher({
-    key: "AIzaSyDTJ2VSza7Ruy1FauQvYDFm07DK30p__GM",
+    key: " ",
     revealed: true
 });
 
@@ -151,4 +151,4 @@ client.on('messageDelete',async(message)=>{
     require('./events/guild/MessageDelete')(message)
 })
 
-client.login('NzcwOTc3MjA5OTQ2OTk2NzQ2.X5laeg.NXVHVba5nUK62DJHvKM9nPJc7SU');
+client.login(' ');
