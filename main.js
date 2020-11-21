@@ -29,7 +29,14 @@ client.on("message", async (message) => {
 
   const serverQueue = queue.get(message.guild.id);
 
-  const args = message.content.slice(prefix.length).trim().split(/ +/g);
+  const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const prefixRegex = new RegExp(
+    `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
+  );
+  if (!prefixRegex.test(message.content)) return;
+
+  const [matchedPrefix] = message.content.match(prefixRegex);
+  const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
 
   switch (command) {
